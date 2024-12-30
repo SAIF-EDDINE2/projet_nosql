@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/style.css" />
+    <title>Accueil</title>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Formulaire d'ajout à gauche -->
+        <div class="left-form">
+            <h2>Ajouter un étudiant</h2>
+            <form method="post" action="/add-mahasiswa" enctype="multipart/form-data">
+                <label for="numero">Numéro</label>
+                <input type="text" id="numero" name="numero" required>
+                <label for="nom">Nom Complet</label>
+                <input type="text" id="nom" name="nom" required>
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+                <label for="date_naissance">Date de naissance</label>
+                <input type="date" id="date_naissance" name="date_naissance" required>
+                <label for="telephone">Téléphone</label>
+                <input type="text" id="telephone" name="telephone" required>
+                <label for="adresse">Adresse</label>
+                <input type="text" id="adresse" name="adresse" required>
+                <label for="filiere">Filière</label>
+                <input type="text" id="filiere" name="filiere" required>
+                <label for="statut">Statut</label>
+                <select id="statut" name="statut">
+                    <option value="Actif">Actif</option>
+                    <option value="Diplômé">Diplômé</option>
+                </select>
+                <!-- Champ pour télécharger l'image de profil -->
+                <label for="image">Image de profil</label>
+                <input type="file" id="image" name="image" accept="image/*">
+                <button type="submit" class="btn-primary">Ajouter</button>
+            </form>
+        </div>
+
+        <!-- Tableau des données et formulaire de recherche à droite -->
+        <div class="right-table">
+            <h2>Liste des étudiants</h2>
+
+            <!-- Formulaire de recherche -->
+            <form method="get" action="/search" class="search-form">
+                <label for="search">Rechercher un étudiant :</label>
+                <input type="text" id="search" name="query" placeholder="Entrez un nom, numéro ou email" required>
+                <button type="submit" class="btn-primary">Rechercher</button>
+            </form>
+
+            <!-- Tableau des étudiants -->
+            <table>
+                <thead>
+                    <tr>
+                        <th>Numéro</th>
+                        <th>Nom</th>
+                        <th>Email</th>
+                        <th>Date de naissance</th>
+                        <th>Téléphone</th>
+                        <th>Adresse</th>
+                        <th>Filière</th>
+                        <th>Statut</th>
+                        <th>Image de Profil</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% projet_nosql.forEach(function(etudiant) { %>
+                    <tr>
+                        <td><%= etudiant.value.numero %></td>
+                        <td><%= etudiant.value.nom %></td>
+                        <td><%= etudiant.value.email %></td>
+                        <td><%= etudiant.value.date_naissance %></td>
+                        <td><%= etudiant.value.telephone %></td>
+                        <td><%= etudiant.value.adresse %></td>
+                        <td><%= etudiant.value.filiere %></td>
+                        <td><%= etudiant.value.statut %></td>
+                        <!-- Afficher l'image de profil si elle existe -->
+                        <td>
+                            <% if (etudiant.value.image) { %>
+                                <img src="data:image/jpeg;base64,<%= etudiant.value.image %>" alt="Image de profil" width="50" height="50">
+                            <% } else { %>
+                                Pas d'image
+                            <% } %>
+                        </td>
+                        <td>
+                            <a href="/edit/<%= etudiant.id %>" class="btn btn-secondary">Modifier</a>
+                            <form method="post" action="/delete/<%= etudiant.id %>" style="display: inline;">
+                                <input type="hidden" name="rev" value="<%= etudiant.value.rev %>">
+                                <button type="submit" class="btn btn-danger">Supprimer</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+            <br><br>
+
+            <!-- Bouton Accueil -->
+            <div class="home-btn">
+                <a href="/" class="btn-nav">Accueil</a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/style1.css" />
+    <title>Modifier un étudiant</title>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Formulaire d'édition -->
+        <div class="left-form">
+            <h2>Modifier les informations</h2>
+            <form method="post" action="/edit/<%= mahasiswa._id %>" enctype="multipart/form-data">
+                <input type="hidden" name="_id" value="<%= mahasiswa._id %>">
+                <input type="hidden" name="_rev" value="<%= mahasiswa._rev %>">
+
+                <label for="numero">Numéro</label>
+                <input type="text" id="numero" name="numero" value="<%= mahasiswa.numero %>" required>
+
+                <label for="nom">Nom Complet</label>
+                <input type="text" id="nom" name="nom" value="<%= mahasiswa.nom %>" required>
+
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" value="<%= mahasiswa.email %>" required>
+
+                <label for="date_naissance">Date de naissance</label>
+                <input type="date" id="date_naissance" name="date_naissance" value="<%= mahasiswa.date_naissance %>" required>
+
+                <label for="telephone">Téléphone</label>
+                <input type="text" id="telephone" name="telephone" value="<%= mahasiswa.telephone %>" required>
+
+                <label for="adresse">Adresse</label>
+                <input type="text" id="adresse" name="adresse" value="<%= mahasiswa.adresse %>" required>
+
+                <label for="filiere">Filière</label>
+                <input type="text" id="filiere" name="filiere" value="<%= mahasiswa.filiere %>" required>
+
+                <label for="statut">Statut</label>
+                <select id="statut" name="statut" required>
+                    <option value="Actif" <%= mahasiswa.statut === "Actif" ? "selected" : "" %>>Actif</option>
+                    <option value="Diplômé" <%= mahasiswa.statut === "Diplômé" ? "selected" : "" %>>Diplômé</option>
+                </select>
+
+                <label for="image">Image de profil</label>
+                <input type="file" id="image" name="image">
+                <!-- Champ caché pour envoyer l'image existante si l'utilisateur ne la modifie pas -->
+                <input type="hidden" name="existing_image" value="<%= mahasiswa.image %>">
+
+                <button type="submit" class="btn-primary">Enregistrer</button>
+            </form>
+
+            <!-- Bouton retour -->
+            <a href="/" class="back-button">Retour</a>
+        </div>
+    </div>
+</body>
+
+</html>

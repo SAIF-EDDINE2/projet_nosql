@@ -1,0 +1,201 @@
+/* Conteneur principal */
+.container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Formulaire d'ajout (gauche) */
+.left-form {
+    width: 20%; /* Le formulaire occupe 20% de la page */
+    padding: 15px;
+    background-color: #f0f8ff; /* Changement de fond en bleu clair */
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Espacement entre les champs */
+}
+
+/* Labels et champs de formulaire */
+.left-form label {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px; /* Marge sous les labels */
+    color: #007bff; /* Couleur du texte en bleu */
+}
+
+/* Champs de saisie */
+.left-form input,
+.left-form select {
+    padding: 6px; /* Réduit l'espacement interne pour ajuster la taille */
+    font-size: 14px;
+    border: 1px solid #007bff; /* Bordure bleue */
+    border-radius: 5px;
+    margin-bottom: 10px; /* Marge sous les champs */
+    width: 100%; /* Les champs prennent toute la largeur disponible dans la limite du parent */
+    max-width: 100%; /* Empêche le dépassement de la largeur du parent */
+}
+
+/* Bouton soumettre */
+.left-form button {
+    padding: 8px;
+    font-size: 14px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%; /* Le bouton prend toute la largeur */
+}
+
+.left-form button:hover {
+    background-color: #218838;
+}
+
+
+/* Tableau des étudiants (droite) */
+.right-table {
+    width: 75%; /* Le tableau occupe 75% de la page */
+    padding: 15px;
+    background-color: #ffffff; /* Changement de fond pour un bleu très clair */
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    overflow-x: auto; /* Permet un défilement horizontal si nécessaire */
+    border: 1px solid #007bff; /* Bordure bleue autour du tableau */
+}
+
+/* Tableau */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    border: 2px solid #007bff; /* Bordure bleue autour du tableau */
+}
+
+table th, table td {
+    padding: 8px 12px;
+    text-align: left;
+    border: 1px solid #007bff; /* Bordure bleue pour les cellules */
+    font-size: 16px;
+    color: #007bff; /* Couleur du texte en bleu */
+}
+
+table th {
+    background-color: #e7f1ff; /* Fond bleu clair pour les en-têtes */
+    font-weight: bold;
+}
+
+table tr:nth-child(even) {
+    background-color: #f1f9ff; /* Fond légèrement bleu pour les lignes paires */
+}
+
+table tr:hover {
+    background-color: #d8e9ff; /* Fond bleu pâle au survol */
+    cursor: pointer;
+}
+
+/* Boutons dans le tableau */
+table .btn {
+    padding: 6px 10px;
+    font-size: 14px;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 4px;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    color: white;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    color: white;
+}
+
+/* Bouton Accueil */
+.home-btn a {
+    padding: 8px 15px;
+    font-size: 16px;
+    background-color: #28a745;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.home-btn a:hover {
+    background-color: #218838;
+}
+
+/* Formulaire de recherche */
+.search-form {
+    width: 100%; /* Le formulaire prend toute la largeur disponible */
+    padding: 15px;
+    background-color: #f0f8ff; /* Changement de fond en bleu clair */
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Espacement entre les champs */
+}
+
+/* Labels et champs de recherche */
+.search-form label {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px; /* Marge sous les labels */
+    color: #007bff; /* Couleur du texte en bleu */
+}
+
+/* Champs de saisie du formulaire de recherche */
+.search-form input {
+    padding: 6px; /* Réduit l'espacement interne pour ajuster la taille */
+    font-size: 14px;
+    border: 1px solid #007bff; /* Bordure bleue */
+    border-radius: 5px;
+    margin-bottom: 10px; /* Marge sous les champs */
+    width: 40%; /* Les champs prennent toute la largeur disponible dans la limite du parent */
+    max-width: 100%; /* Empêche le dépassement de la largeur du parent */
+}
+
+/* Bouton de recherche */
+.search-form button {
+    padding: 8px;
+    font-size: 14px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 20%; /* Le bouton prend toute la largeur */
+}
+
+.search-form button:hover {
+    background-color: #218838;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    /* Les éléments s'empilent en colonne sur les petits écrans */
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .left-form, .right-table {
+        width: 100%; /* Les deux éléments occupent 100% de la largeur */
+        margin-bottom: 20px;
+    }
+
+    table th, table td {
+        font-size: 12px;
+        padding: 6px 8px;
+    }
+
+    .home-btn a {
+        font-size: 12px;
+        padding: 10px 20px;
+    }
+}
