@@ -1,4 +1,4 @@
-![Image 1](16.png)
+![Alt text](16.png?raw=true "Title")
 ![Image 1](17.png)
 ![Image 2](25.png)
 ![Image 3](26.png)
