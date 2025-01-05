@@ -1,7 +1,5 @@
-![image](/screenshots/16.png)
-![image](/screenshots/17.png)
-![image](/screenshots/18.png)
-![image](/screenshots/25.png)
-![image](/screenshots/26.png)
-![image](/screenshots/27.png)
-
+![Alt text](16.jpeg?raw=true "Title")
+![Alt text](17.jpeg?raw=true "Title")
+![Alt text](25.jpeg?raw=true "Title")
+![Alt text](26.jpeg?raw=true "Title")
+![Alt text](27.jpeg?raw=true "Title")
